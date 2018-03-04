@@ -17,9 +17,9 @@ from the cipertext.
 # of the LFSR is determined by the smaller of the two strings.
 # formula: LFSR = plaintext XOR ciphertext
 # PARAM: left  -- a binary string; may be cipher- or plaintext
-#         right -- the other binary string; may be cipher- or plaintext
+#        right -- the other binary string; may be cipher- or plaintext
 # RETURN: the computed LFSR as a binary string
-def XOR(left, right):
+def xor(left, right):
     lfsr = "" #lfsr = left XOR right (up to smallest string length)
     smaller = min(len(left), len(right))
     
@@ -38,15 +38,18 @@ def XOR(left, right):
             
     return lfsr
 
-#After computing the recurrence relation, it was determined that
-#the relation is:
+# Constructs the entire LFSR key and uses it to find the plaintext
+# by using LFSR XOR ciphertext
+# After computing the recurrence relation, it was determined that
+# the formula for the relation is:
 #       x_(n+5) = x_(n) + x_(n+1) + x_(n+4)
-#PARAMS: ciphertext -- a string representing binary encoded cipertext
-#        lfsr -- the binary key used to decrypt the ciphertext
-#RETURN: the decrypted plaintext binary string
+# PARAMS: ciphertext -- a string representing binary encoded cipertext
+#         lfsr -- the binary key used to decrypt the ciphertext
+# RETURN: the decrypted plaintext binary string
 def find_plaintext(ciphertext, lfsr):
     
-    #the loop constructs the LFSR over the entire length of the ciphertext
+    #the loop constructs the LFSR (mod 2) over the entire
+    #length of the ciphertext
     start = len(lfsr)
     end = len(ciphertext)
     for i in range(start, end):
@@ -55,12 +58,12 @@ def find_plaintext(ciphertext, lfsr):
         x_n4 = int(lfsr[i-1])
         lfsr += str((x_n0 + x_n1 + x_n4) % 2)
 
-    return XOR(lfsr, ciphertext)
+    return xor(lfsr, ciphertext)
 
 # Prints the results of the XOR operations. Text is aligned to make visual
 # XOR calculations easier
 #PARAMS: c_text, lfsr, p_text -- the respective ciphertext,
-#           LFSR, and plaintext strings
+#        LFSR, and plaintext strings
 def results(c_text, lfsr, p_text):
     print("The ciphertext is:   " + c_text)
     print("The LFSR after XOR:  " + lfsr)
@@ -70,8 +73,8 @@ def main():
     ciphertext = "01100010101110011101010001000110001010111001110101"
     plaintext = "100100100100100"
     
-    
-    lfsr = XOR(plaintext, ciphertext)
+    lfsr = xor(plaintext, ciphertext)
     plaintext = find_plaintext(ciphertext, lfsr)
-
+    results(ciphertext, lfsr, plaintext)
+    
 main()
