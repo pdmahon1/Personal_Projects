@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Affine Cipher</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="js/standard_functions.js"></script>
+    <script>setDebug(true);</script>
+    <script src="js/affine.js"></script>
+</head>
+<body>
+    <!-- DO NOT TOUCH THIS noscript -->
+    <noscript>You need
+        <a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/">JavaScript enabled</a>
+        in order to experience this site at its richest.<br />
+        Without JS enabled, the encoder/decoder functions won't work.
+    </noscript>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <span id="keep_this_code">
+    <h3>What is an affine cipher?</h3>
+    <p>
+        The "simple" answer to this question is that every letter, when converted
+        to an equivalent number, is multiplied by a constant number and then
+        translated (or "shifted") by another constant number. In an affine cipher, the equation is commonly written as n &#8614; &alpha;n +
+        &beta;&nbsp;&equiv; K (mod 26), which resembled the point-slope equation of a line.</p>
+    <p>Fun fact: setting &alpha; = 1 makes this cipher a Caesar cipher!</p>
+    <br /><hr />
+    <span id="form_output">
+        <form onchange="change_form()" onsubmit="return false;">
+          <input type="radio" name="options" value="find_ct">Find Ciphertext (easy)
+          <input type="radio" name="options" value="find_pt"> Find Plaintext (medium)
+          <input type="radio" name="options" value="find_alpha"> Find &alpha;, &beta; (difficult)
+          <input type="radio" name="options" value="generate"> Generate (provides everything)
+      </form>
+      <form onsubmit="return false;">
+          <br /><br />
+          <span class="valueOf">&alpha; = <input id="alpha_out" onchange="alpha=this.value; setAlpha(alpha);"></input></span>
+          <span class="valueOf">&beta; = <input id="beta_out" onchange="beta=this.value; setBeta(beta);"></input></span>
+          <br /><br />
+          <textarea id="pt_out" onchange="plaintext=this.value.toLowerCase(); convertPT(); setPT(plaintext);"></textarea> <-- plaintext<br />
+          <!--<textarea id="ct_out" onblur="if (this.value == '') {this.value = 'CIPHERTEXT goes here';}" onfocus="if (this.value == 'CIPHERTEXT goes here') {this.value = '';}">CIPHERTEXT goes here</textarea><br />-->
+          <textarea id="ct_out" onchange="ciphertext=this.value.toUpperCase(); setCT(ciphertext);"></textarea> <-- CIPHERTEXT<br />
+          <span id="response_correct"><br /></span>
+          <button onclick="change_form()">New Inputs</button>
+          <button onclick="check_answer()">Check Answer</button>
+    </form>
+    </span><!-- end form_output -->
+    </span>
+
+
+    <!-- DO NOT TOUCH THESE script CALLS -->
+    <script src="js/includes.js"></script>
+    <script>build_page();</script>
+</body>
+</html>

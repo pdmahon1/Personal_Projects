@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Crypto Practice</title>
+    <script src="../js/standard_functions.js"></script>
+</head>
+<body>
+Test gcd</br>
+<hr />
+
+<span id="output"></span>
+
+<script>
+var str  = "Test 1: " + testGCD(10, 15);
+    str += "Test 2: " + testGCD(15, 10);
+    str += "Test 3: " + testGCD(100, 20);
+    str += "Test 4: " + testGCD(3, 3101);
+    str += "Test 5: " + testGCD(101, 15000);
+    str += "Test 6: " + testGCD(2, 900000000000);
+document.getElementById("output").innerHTML = str;
+
+function testGCD(a, b){
+    var obj = gcd(a, b);
+    console.log(obj);
+    return "gcd of " + a + " and " + b + " is: " + obj.gcd + "<br />";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+"Maps to" left bar to right arrow
+    &#8614;     or    &#x21A6;
+
+Small Greek alpha
+    &alpha;
+
+Small Greek beta
+    &beta;
+
+Congruent / "identical to"
+    &equiv;

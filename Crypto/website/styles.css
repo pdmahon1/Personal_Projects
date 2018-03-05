@@ -1,34 +1,51 @@
+/*
+ * @author Peter Mahon
+ *
+ * A CSS style sheet for the Crypto Practive website
+ */
 body{
     background-color: gray;
-    padding: 0;
+    padding: 0px;
+    font-family: sans-serif, Arial;
 }
 #main_container{
     width: 85%;
     margin: auto;
     background-color: black;
     height: auto;
+    padding: 0px;
 }
 #title{
     width: 100%;
-    background-color: red;
+    background-color: steelblue;
     color: white;
     text-align: center;
-    font-size: 38;
-    padding: 15 0 10 0;
+    font-size: 2.5em;
+    padding: 15px 0px 20px 0px;
+}
+#title a{
+    text-decoration: none;
+    color: white;
+}
+#title a:hover{
+    text-decoration: underline;
+    color: white;
 }
 #new_nav{
     width: 100%;
-    background-color: orange;
-    margin: 0;
+    background-color: purple;
+    margin: 0px;
     text-align: center;
     font-size: 1.2em;
-    height: auto;
+}
+#new_nav p{
+    padding: 5px 0px 5px 0px;
+    margin: 0px;
 }
 #new_nav ul{
     list-style-type: none;
-    padding: 15 0;
-    background-color: purple;
-    margin: 0;
+    margin: 0px;
+    padding: 15px 0px;
 }
 #new_nav li{
     margin-right: 2em;
@@ -36,25 +53,54 @@ body{
 }
 #new_nav li a{
     color: white;
+    text-decoration: none;
 }
 #new_nav li a:hover{
-    color: gray;
+    color: lightgray;
+    text-decoration: underline;
 }
-#body{
+#div_body{
     background-color: white;
     font-color: white;
-    padding: 0;
-    width: 100%;
-    margin:auto;
-}
-iframe{
-    width: 100%;
-    border: 0;
+    padding: 0px 20px;
+    width: 85%;
+    padding: 20px;
+    margin: 0px;
+    margin: auto;
 }
 #footer{
     width: 100%;
-    background-color: red;
+    background-color: steelblue;
     color: white;
     text-align: center;
-    padding: 15 0 10 0;
+    padding: 20px 0px 15px 0px;
+}
+#footer a{
+    color: white;
+    text-decoration: underline;
+}
+#footer a:hover{
+    color: lightgray;
+    text-decoration: none;
+}
+span.valueOf{
+    font-size: 1.5em;
+}
+span.valueOf input{
+    font-size: 1em;
+    max-width: 5em;
+}
+form textarea{
+    font-size: 1.25em;
+    min-width: 40%;
+    max-width: 75%;
+}
+form button{
+    font-size: 1.25em;
+}
+#response_correct{
+    width: 30%;
+    padding: 5px;
+    margin: 5px 0px;
+    display: none;
 }

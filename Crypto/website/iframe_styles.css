@@ -1,0 +1,7 @@
+body{
+    background-color: white;
+    font-family: sans-serif, Arial;
+}
+#iframe_body{
+    padding: 0 50;
+}
